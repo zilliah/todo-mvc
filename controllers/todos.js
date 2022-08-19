@@ -1,3 +1,5 @@
+//replaces db.collections
+//easier to understand!
 const Todo = require('../models/Todo')
 
 module.exports = {
@@ -12,6 +14,7 @@ module.exports = {
             //have the MODEL for talking to the DB
             //DB stuff all goes into "Todo" (required at top!)
             const todoItems = await Todo.find()
+            //counts the number of incomplete documents
             const itemsLeft = await Todo.countDocuments({completed: false})
             res.render('todos.ejs', {todos: todoItems, left: itemsLeft})
         }catch(err){
@@ -33,6 +36,7 @@ module.exports = {
     },
     markComplete: async (req, res)=>{
         try{
+            //find the item with the SPECIFIC ID
             await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
                 completed: true
             })

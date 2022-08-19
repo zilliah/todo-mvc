@@ -11,6 +11,9 @@
     <h1>Todos</h1>
     <ul>
     <% todos.forEach( el => { %>
+        <!-- ID in the HTML to allow deleting specific elements -->
+        <!-- security-wise, this is not a good idea for production code -->
+        <!-- but for learning it's ok -->
         <li class='todoItem' data-id='<%=el._id%>'>
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
             <span class='del'> Delete </span>
