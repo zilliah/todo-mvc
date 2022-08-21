@@ -13,7 +13,8 @@ const todoRoutes = require('./routes/todos')
 require('dotenv').config({path: './config/.env'})
 
 //the DB connection function is actually called
-//without calling it, won't connect!
+//without calling it, won't connect! 
+//it's only defined in /config/database.js
 connectDB()
 
 //select the view engine, ejs
